@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs'; 
 
 @Injectable({
@@ -21,5 +21,16 @@ export class GeolocationService {
 
     // Make the GET request to the API
     return this.http.get(this.apiUrl, { params });
+  }
+  getDataCentersLocations(): Observable<any> {
+    // Set the query parameters
+    const username = 'user';
+const password = 'password';
+const headers = new HttpHeaders({
+  'Authorization': 'Basic ' + btoa(username + ':' + password)
+});
+
+    // Make the GET request to the API
+    return this.http.get("/api/datacenters/locations",{headers});
   }
 }
