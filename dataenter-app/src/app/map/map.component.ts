@@ -58,6 +58,7 @@ export class MapComponent implements OnInit {
                 dataSource: this.dataSource,
                 animationDuration: 2
               }];
+              
             },
             error: (error) => {
               console.error('Error fetching coordinates data:', error);

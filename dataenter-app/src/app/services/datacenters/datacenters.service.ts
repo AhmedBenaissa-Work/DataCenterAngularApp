@@ -9,5 +9,15 @@ export class DatacentersService {
 
   constructor(private http: HttpClient) { }
 
- 
+  getDataCenters(): Observable<any> {
+    // Set the query parameters
+    const username = 'user';
+const password = 'password';
+const headers = new HttpHeaders({
+  'Authorization': 'Basic ' + btoa(username + ':' + password)
+});
+
+    // Make the GET request to the API
+    return this.http.get("/api/datacenters/",{headers});
+  }
 }
